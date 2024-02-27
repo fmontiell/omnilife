@@ -1,0 +1,2 @@
+# omnilife
+Proyecto inicial
