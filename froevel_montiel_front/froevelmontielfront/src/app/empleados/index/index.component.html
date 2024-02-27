@@ -1,0 +1,39 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+      <h4>Lista de empleados</h4>
+      <a routerLink="/empleados/crear/0" class="btn btn-success">Nuevo Empleado</a>
+    </div>
+
+    <br>
+    
+    <table class="table ">
+      <tr>
+        <th>ID</th>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Salario dolares</th>
+        <th>Salario pesos</th>
+        <th>Celular</th>
+        <th>Correo</th>
+        <th width="220px">Opciones</th>
+      </tr>
+      <tr *ngFor="let empleado of empleados">
+        <td>{{ empleado.id }}</td>
+        <td>{{ empleado.codigo }}</td>
+        <td>{{ empleado.nombre }}</td>
+        <td>{{ empleado.salarioDolares }}</td>
+        <td>{{ empleado.salarioPesos }}</td>
+        <td>{{ empleado.celular }}</td>
+        <td>{{ empleado.correo }}</td>
+        <td>
+          
+            <a href="#" [routerLink]="['/empleados/', 'crear', empleado.id  ]" class="btn btn-primary">Editar</a>
+          
+            <button type="button" (click)="borrarEmpleado(empleado.id)" class="btn btn-danger">Borrar</button>
+        
+        </td>
+        
+      </tr>
+    </table>
+ </section>

@@ -1,0 +1,153 @@
+<div>
+
+    <div class="d-flex justify-content-between">
+      <h4>Captura de empleado</h4>
+      <a href="#" routerLink="/empleados/index" class="btn btn-primaryt">Cancelar</a>
+    </div>
+  
+    <hr/>
+  
+      <form [formGroup]="form" (ngSubmit)="submit()">
+  
+            <div class="form-group row">
+                <div class="col-md-6 ">
+                <label for="title">Codigo:</label>
+                <input
+                    formControlName="codigo"
+                    id="codigo"
+                    type="text"
+                    class="form-control">
+                <div *ngIf="f.codigo.touched && f.codigo.invalid" class="alert alert-danger">
+                    <div *ngIf="f.codigo.errors.required">*El codigo es requerido.</div>
+                </div>
+                </div>
+            </div>
+            
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="title">Nombre:</label>
+                <input
+                  formControlName="nombre"
+                  id="nombre"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="f.nombre.touched && f.nombre.invalid" class="alert alert-danger">
+                    <div *ngIf="f.nombre.errors.required">*El nombre es requerido.</div>
+                    <div *ngIf="f.nombre.errors.pattern">*El nombre solo debe tener letras.</div>
+                </div>
+              </div>
+          </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+            <label for="salarioDolares">Salario dolares:</label>
+            <input
+                formControlName="salarioDolares"
+                id="salarioDolares"
+                type="text"
+                class="form-control"
+                (blur)="actualizarSalarioPesos()">
+            <div *ngIf="f.salarioDolares.touched && f.salarioDolares.invalid" class="alert alert-danger">
+                <div *ngIf="f.salarioDolares.errors.required">*El salario en dolares es requerido.</div>
+                <div *ngIf="f.salarioDolares.errors.pattern">*El salario en dolares debe contener solo numeros.</div>
+            </div>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+            <label for="salarioPesos">Salario pesos:</label>
+            <input 
+                formControlName="salarioPesos"
+                id="salarioPesos"
+                type="text"
+                class="form-control">
+            <div *ngIf="f.salarioPesos.touched && f.salarioPesos.invalid" class="alert alert-danger">
+                <div *ngIf="f.salarioPesos.errors.required">*El salario en pesos es requerido.</div>
+                <div *ngIf="f.salarioPesos.errors.pattern">*El salario en pesos debe contener solo numeros.</div>
+            </div>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+            <label for="title">Dirección:</label>
+            <input
+                formControlName="direccion"
+                id="direccion"
+                type="text"
+                class="form-control">
+            <div *ngIf="f.direccion.touched && f.direccion.invalid" class="alert alert-danger">
+                <div *ngIf="f.direccion.errors.required">*La direccion es requerida.</div>
+            </div>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+            <label for="estado">Estado:</label>
+            <input
+                formControlName="estado"
+                id="estado"
+                type="text"
+                class="form-control">
+            <div *ngIf="f.estado.touched && f.estado.invalid" class="alert alert-danger">
+                <div *ngIf="f.estado.errors.required">*El estado es requerido.</div>
+            </div>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+            <label for="ciudad">Ciudad:</label>
+            <input
+                formControlName="ciudad"
+                id="ciudad"
+                type="text"
+                class="form-control">
+            <div *ngIf="f.ciudad.touched && f.ciudad.invalid" class="alert alert-danger">
+                <div *ngIf="f.ciudad.errors.required">*La ciudad es requerida.</div>
+            </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="celular">Celular:</label>
+              <input
+                formControlName="celular"
+                id="celular"
+                type="text"
+                class="form-control">
+              <div *ngIf="f.celular.touched && f.celular.invalid" class="alert alert-danger">
+                  <div *ngIf="f.celular.errors.required">*El celular es requerido.</div>
+                  <div *ngIf="f.celular.errors.pattern">*El celular debe contener solo numeros.</div>
+              </div>
+            </div>
+        </div>
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="correo">Correo:</label>
+                <input
+                  formControlName="correo"
+                  id="correo"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="f.correo.touched && f.correo.invalid" class="alert alert-danger">
+                    <div *ngIf="f.correo.errors.required">*El correo es requerido.</div>
+                    <div *ngIf="f.correo.errors.email">*El correo debe ser una direccion valida.</div>
+                </div>
+              </div>
+          </div>
+  
+          
+  
+          <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Guardar</button>
+      </form>
+  </div>
+  
