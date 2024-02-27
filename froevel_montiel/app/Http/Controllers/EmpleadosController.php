@@ -43,11 +43,25 @@ class EmpleadosController extends Controller
         ]);
        */
 
-       Empleados::create($request->all());
+       if(isset($request->id) && $request->id > 0){
+           $emp = Empleados::find($request->id);
+           $emp->update($request->all());
 
-        return redirect()->route('empleados.index')
-            ->with('success','Empleado creado');
 
+
+           return redirect()->route('empleados.index')
+               ->with('success','Empleado actualizado');
+
+
+       }else{
+
+           Empleados::create($request->all());
+
+           return redirect()->route('empleados.index')
+               ->with('success','Empleado creado');
+
+
+       }
 
     }
 
@@ -81,8 +95,44 @@ class EmpleadosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+
+
+        $emp = Empleados::find($request);
+
+        Empleados::where('id',$request)
+            ->update(['eliminado' => 1]);
+        //$emp->update($request->all());
+
+
+        return redirect()->route('empleados.index')
+            ->with('success','Empleado actualizado');
+
+    }
+
+    public function proyeccion($id)
+    {
+
+
+        $emp = Empleados::find($id);
+
+
+        $data = array();
+
+        for($i = 0; $i<6; $i++) {
+
+            if($i == 0)
+                $data[$i] = round($emp->salarioDolares * 1.02);
+            else
+                $data[$i] = round($data[$i-1] * 1.02);
+
+        }
+
+
+
+
+        return $data;
+
     }
 }

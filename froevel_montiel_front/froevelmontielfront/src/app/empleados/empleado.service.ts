@@ -50,12 +50,23 @@ export class EmpleadoService {
    )
  }
 
- delete(id: any){
-   return this.httpClient.delete<Empleado>(this.apiURL + '/'+id, this.httpOptions)
+ delete(empleado: any){
+   
+
+   return this.httpClient.post<Empleado>(this.apiURL+'/delete', JSON.stringify(empleado), this.httpOptions)
    .pipe(
      catchError(this.errorHandler)
    )
  }
+
+ proyeccion(id: any): Observable<Empleado> {
+  return this.httpClient.get<Empleado>(this.apiURL + '/proyeccion/'+ id)
+  .pipe(
+    catchError(this.errorHandler)
+  )
+  }
+
+
 
 
  getTipoCambio(): Observable<any> {

@@ -23,6 +23,7 @@ export class CrearComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = new FormGroup({
+      id:  new FormControl(''),
       codigo:  new FormControl('', [ Validators.required ]),
       nombre:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-Z \-\']+') ]),
       salarioDolares: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ]),
@@ -47,8 +48,19 @@ export class CrearComponent implements OnInit {
 
 
         this.form.patchValue({
+          id: this.empleado.id,
+          codigo:  this.empleado.codigo,
+          nombre:  this.empleado.nombre,
+          direccion:  this.empleado.direccion,
           salarioDolares: this.empleado.salarioDolares,
-          salarioPesos: this.empleado.salarioPesos
+          salarioPesos: this.empleado.salarioPesos,
+          estado:  this.empleado.estado,
+          ciudad:  this.empleado.ciudad,
+          celular: this.empleado.celular,
+          correo: this.empleado.correo,
+          activo: this.empleado.activo,
+          eliminado: this.empleado.eliminado
+          
         });
       });
 

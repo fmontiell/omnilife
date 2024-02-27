@@ -28,9 +28,11 @@
         <td>{{ empleado.correo }}</td>
         <td>
           
+            <a href="#" [routerLink]="['/empleados/', 'consultar', empleado.id  ]" class="btn btn-success">Consultar</a>
+
             <a href="#" [routerLink]="['/empleados/', 'crear', empleado.id  ]" class="btn btn-primary">Editar</a>
           
-            <button type="button" (click)="borrarEmpleado(empleado.id)" class="btn btn-danger">Borrar</button>
+            <button type="button" (click)="borrarEmpleado(empleado.id)" class="btn btn-danger">Eliminar</button>
         
         </td>
         

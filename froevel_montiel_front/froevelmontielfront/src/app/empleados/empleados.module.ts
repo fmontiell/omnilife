@@ -6,6 +6,7 @@ import { IndexComponent } from './index/index.component';
 import { CrearComponent } from './crear/crear.component';
 import { EditarComponent } from './editar/editar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConsultarComponent } from './consultar/consultar.component';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     IndexComponent,
     CrearComponent,
-    EditarComponent
+    EditarComponent,
+    ConsultarComponent
   ],
   imports: [
     CommonModule,
